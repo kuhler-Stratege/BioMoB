@@ -1,0 +1,17 @@
+{%  extends '/Misc/Template.html.twig' %}
+
+{%  block PageHeader %}
+    <div class="TopArea">
+            <span class="ButtonArea">
+                <a href={% block Link %} "" {% endblock %} class="FakeButton">
+                    <img src="{{ path('HomeImage') }}" alt="A house with an open door" class="ButtonIcon">
+                    Back to main menu
+                </a>
+            </span>
+        <span class="TitleArea">
+                <h3 class="Title">
+                    {% block PageTitle %} {% endblock %}
+                </h3>
+            </span>
+    </div>
+{% endblock %}

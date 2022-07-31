@@ -1,0 +1,53 @@
+{% extends "Misc/Template.html.twig" %}
+
+{% block TabTitle %}
+    Register
+{% endblock %}
+
+{% block Stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ path('LogInCSS') }}">
+{% endblock %}
+
+{% block PageTitle %}
+    Register
+{% endblock %}
+
+{% block Page %}
+        <form action="/LogIn/Register/processData" method="post">  {# TODO: Controller anlegen, der Leute registriert #}
+            <table class="FormTable">
+                <tbody>
+                {% include "Misc/FormTemplate/FormRow.html.twig" with {"id": "Name", "label": "Username", "type": "text", "required": true} %}
+                {% include "Misc/FormTemplate/FormRow.html.twig" with {"id": "Email", "label": "E-mail adress", "type": "email", "required": true} %}
+                {% include "Misc/FormTemplate/FormRow.html.twig" with {"id": "Passwort", "label": "Password", "type": "password", "required": true} %}
+                <tr>
+                    <td>
+                        <a href="/Find/FindModel" class="RedButton">
+                            <img src="{{ path('XImage') }}" alt="The Letter X" class="ButtonIcon" />
+                            Cancel
+                        </a>
+                    </td>
+                    <td>
+                        <input type="submit" value="Register" class="SubmitButton" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <a href="/LogInn/0" class="FakeButton">
+                            <img src="{{ path('FindpageLogInImage') }}" alt="An open door and an arrow pointing inside" class="ButtonIcon" />
+                            Already registered?
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+{% endblock %}
+
+{% block Javascript %}
+<script>
+    {# TODO: auf freien Nutzernamen checken mit Namen vom Backend #}
+</script>
+{% endblock %}

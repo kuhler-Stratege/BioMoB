@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="UTF-8">
+		<title>
+			BioMoB: {%  block TabTitle %} {%  endblock %}
+		</title>
+		<link type="text/css" rel="stylesheet" href="{{ path('DefaultCSS') }}" />
+		<link type="text/css" rel="stylesheet" href="{{ path('TemplateCSS') }}" />
+		{%  block Stylesheets %}
+		{# Link zur CSS Datei #}
+		{% endblock %}
+	</head>
+	<body>
+		<header>
+			{% set flashes = app.session.flashBag.all() %}
+			{% if flashes|length > 0 %}
+					{% for label, messages in flashes %}
+						{% for message in messages %}
+							<div class="Center Message-{{ label }}">
+								<p>
+									{{ message }}
+								</p>
+							</div>
+						{% endfor %}
+					{% endfor %}
+			{% endif %}
+			<h1 class="SuperTitle">
+				BioMoB: A biodiversity modelbank
+			</h1>
+			<p class="Center Breadcrumbs">
+				You are here: {{ Breadcrumbs }}
+			</p>
+		</header>
+		{% block PageHeader %}
+			<h3 class="Title">
+				{% block PageTitle %}
+					{# Titel der jeweiligen Seite #}
+				{% endblock %}
+			</h3>
+			{# oberer Seitenrand mit Knopf und Titel #}
+		{%  endblock %}
+		<div class="SeitenArea">
+		{% block Page %}
+			{# Seite #}
+		{% endblock %}
+		</div>
+		<footer>
+			<p class="SuperLinks">
+				<a href="https://www.biozentrum.uni-wuerzburg.de/cctb/research/ecosystem-modeling/people/juliano-sarmento-cabral/" target="_blank" rel="noopener noreferrer">Contact</a>
+				<a href="{{ path('AboutRenderer') }}" target="_blank" rel="noopener noreferrer nofollow">About</a>
+                <a href="{{ path('ImprintRenderer') }}" target="_blank" rel="noopener noreferrer nofollow">Imprint</a>  {# TODO: In css Position zu "fixed" (?) setzen, damit es immer schon am unteren Rand sitzt #}
+			</p>
+		</footer>
+	{% block Javascript %}
+		{# Javascript Zeug #}
+	{% endblock %}
+	</body>
+</html>

@@ -1,0 +1,39 @@
+.Title {
+    text-align: center;
+    font-size: 35px;
+}
+
+.FakeButton {
+    display: flex;
+    margin: auto auto 3em;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    background: #207b20;
+    color: #fff;
+    border: 1px solid black;
+
+    height: 30px;
+    width: 200px;
+
+    cursor: pointer;
+}
+
+.FakeButton:hover {
+    background: #1a621a;
+}
+
+.FakeButton:active {
+    background: #154e15;
+}
+
+.Icon {
+    margin-right: 1em;
+    max-width: 14px;
+    max-height: 14px;
+}

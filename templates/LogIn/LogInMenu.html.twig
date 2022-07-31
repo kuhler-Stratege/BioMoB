@@ -1,0 +1,47 @@
+{% extends "Misc/Template.html.twig" %}
+
+{% block TabTitle %}
+    Log-In Menu
+{% endblock %}
+
+{% block Stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ path('LogInMenuCSS') }}" />
+{% endblock %}
+
+{% block PageHeader %}
+    <h3 class="Title">
+	    Log-In Menu
+    </h3>
+    <br />
+    <h5>
+        Welcome back {{ username }}. I hope you had a nice day so far.
+    </h5>
+{% endblock %}
+
+{% block Page %}
+    <div>
+        <a href="/Find/FindModel" class="FakeButton">
+            <img src="{{ path('LogInMenuMagnifierImage') }}" alt="A magnifing glass" class="Icon">
+            Find Model
+        </a>
+        <a href="/Contribute" class="FakeButton">
+            <img src="{{ path('LogInMenuContributeImage') }}" alt="A plus icon" class="Icon">
+            Contribute model
+        </a>
+        <a href="/Edit/EditModels" class="FakeButton">
+            <img src="{{ path('LogInMenuEditModelsImage') }}" alt="A filled out formular" class="Icon">
+            Edit contributed models
+        </a>
+        <a href="/Edit/EditProfile" class="FakeButton">
+            <img src="{{ path('LogInMenuEditProfileImage') }}" alt="A CV" class="Icon">
+            Edit profile
+        </a>
+        {% block AdminButtons %}
+        {# Place Admin Buttons here #}
+        {% endblock %}
+        <a href="{{ path("LogOutProcess") }}" class="FakeButton">
+            <img src="{{ path('LogInMenuLogOutImage') }}" alt="An open door with an arrow pointing outside" class="Icon">
+            Log out
+        </a>
+    </div>
+{% endblock %}

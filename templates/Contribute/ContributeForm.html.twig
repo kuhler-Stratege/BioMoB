@@ -1,0 +1,114 @@
+{% extends '/Misc/FormTemplate/FormTemplate.html.twig' %}
+
+{% block TabTitle %}
+    Contribute
+{% endblock %}
+	
+{% block PageTitle %}
+    Contribute Model
+{% endblock %}
+
+{% block Link %}
+    "/LogIn/MainMenu"
+{% endblock %}
+
+{% block FormLink %}
+    "/Contribute/FormProcessor"
+{% endblock %}
+
+{% block Form %}
+    {% include "/Misc/FormTemplate/FormSubtitle.html.twig" with {"Title": "Generel information"} %}
+
+    {% include '/Misc/FormTemplate/FormAreaRow.html.twig' with {"id": "Modelname", "label": "Full Model name", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Modelkurz", "label": "Model acronym", "type": "text", "required": true}  %}
+
+    <tr>
+        <td>
+            <label for="Link">
+                Link to the source code:
+                <abbr title="e.g. GitHub repository or Project page">
+                    <img src="{{ path('ContributeQuestionmarkImage') }}" alt="A Questionmark inside a circle" class="Fragezeichen">
+                </abbr>
+            </label>
+        </td>
+        <td>
+            <input type="url" id="Link" name="Link" class="FormInput" placeholder="&nbsp;" required />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="Keyword_0">
+                Keyword 1:
+            </label>
+        </td>
+        <td>
+            <input type="text" id="Keyword_0" name="Keyword_0" list="FilterItems" class="FormInput" placeholder="&nbsp;" required />
+            <datalist id="FilterItems">
+                {% for keyword in keywords %}  {# TODO: Keywords aus Datenbank ubergeben #}
+                    <option value="{{ keyword }}"> {{ keyword }} </option>
+                {% endfor %}
+            </datalist>
+            {# TODO: Wenn Element ausgewahlt neues einfugen #}
+        </td>
+    </tr>
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Email", "label": "E-Mail of contact person", "type": "email", "required": true}  %}
+
+    {% include "/Misc/FormTemplate/FormSubtitle.html.twig" with {"Title": "Names of the authors"} %}
+    {% include "Misc/FormTemplate/FormSubsubtitle.html.twig" with {"Subtitle": "Author 1"} %}
+
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Vorname", "label": "Given name", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Nachname", "label": "Surname", "type": "text", "required": true}  %}
+    {# TODO: Dynamisch Zeilen hinzufugen #}
+
+    {% include "/Misc/FormTemplate/FormSubtitle.html.twig" with {"Title": "Descriptions"} %}
+
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "ShortDesc", "label": "Short Description", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormAreaRow.html.twig' with {"id": "LongDesc", "label": "Long Description", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Manuskript", "label": "Link to manuscript", "type": "url", "required": true}  %}
+
+    {% include "/Misc/FormTemplate/FormSubtitle.html.twig" with {"Title": "Technical information \n for developers"} %}
+
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Languages", "label": "Languages used", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Frameworks", "label": "Frameworks used", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Dependencies", "label": "Dependencies", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormAreaRow.html.twig' with {"id": "Misc", "label": "Other information", "type": "text", "required": false}  %}
+    {# TODO: Dynamisch Zeilen hinzufugen #}
+
+    {% include "/Misc/FormTemplate/FormSubtitle.html.twig" with {"Title": "Technical information \n for Users"} %}
+
+    {% include "Misc/FormTemplate/FormSubsubtitle.html.twig" with {"Subtitle": "Model properties"} %}
+
+
+    {% include "Misc/FormTemplate/FormSubsubtitle.html.twig" with {"Subtitle": "Configuration Datasets"} %}
+
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "ConfigVarName", "label": "Name", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "ConfigVarTyp", "label": "Datatype", "type": "text", "required": true}  %}
+    {# TODO: Dynamisch Zeilen hinzufugen #}
+
+    {% include "Misc/FormTemplate/FormSubsubtitle.html.twig" with {"Subtitle": "Input Data"} %}
+
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "InputVarName", "label": "Name", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "InputVarDesc", "label": "Description", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "InputVarTyp", "label": "Format", "type": "text", "required": true}  %}
+    {# TODO: Dynamisch Zeilen hinzufugen #}
+
+    {% include "Misc/FormTemplate/FormSubsubtitle.html.twig" with {"Subtitle": "Output Data"} %}
+
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "OutputVarName", "label": "Name", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "OutputVarDesc", "label": "Description", "type": "text", "required": true}  %}
+    {# TODO: Dynamisch Zeilen hinzufugen #}
+    <tr>
+        <td>
+            <label for="OutputVarTyp" class="LastLabel">
+                Format:
+            </label>
+        </td>
+        <td>
+            <input type="text" id="OutputVarTyp" name="OutputVarTyp" class="FormInput LastInput" placeholder="&nbsp;" required />
+        </td>
+    </tr>
+{% endblock %}
+
+{% block SumbitText %}
+    "Submit"
+{% endblock %}

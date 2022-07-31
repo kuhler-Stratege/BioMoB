@@ -1,0 +1,24 @@
+{% extends "Misc/Template.html.twig" %}
+
+{% block TabTitle %}
+    Log out successfully
+{% endblock %}
+
+{% block Stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/LogOut/LogOut/CSS">
+{% endblock %}
+
+{% block PageTitle %}
+    Log out successful
+{% endblock %}
+
+{% block Page %}
+        <p class="Message">
+            The log out was successfully completed. Have a nice remaining day and see you soon.
+        </p>
+        <br />
+        <a href="/Find/FindModel" class="FakeButton">
+            <img src="{{ path('HomeImage') }}" alt="An icon with a house with an open door" class="ButtonIcon">
+            To start page
+        </a>
+{% endblock %}

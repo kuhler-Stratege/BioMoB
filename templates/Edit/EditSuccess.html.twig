@@ -1,0 +1,24 @@
+{% extends "Misc/Template.html.twig" %}
+
+{% block TabTitle %}
+    Log out successfully
+{% endblock %}
+
+{% block Stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ path('UserprofilerUpdaterCSS') }}">
+{% endblock %}
+
+{% block PageTitle %}
+    Edited profile successful {# TODO: Controller fur Profilanderungen basteln #}
+{% endblock %}
+
+{% block Page %}
+        <p class="Message">
+            The changes to your profile were applied succesfully.
+        </p>
+        <br />
+        <a href="{{path('LogInMenu')}}" class="FakeButton">
+            <img src="{{ path('HomeImage') }}" alt="An icon with a house with an open door" class="ButtonIcon">
+            To start page
+        </a>
+{% endblock %}

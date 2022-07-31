@@ -1,0 +1,53 @@
+{% extends "Misc/FormTemplate/FormTemplate.html.twig" %}
+
+{% block TabTitle %}
+    Edit user profile
+{% endblock %}
+
+{% block Stylesheets%}
+    <link rel="stylesheet" type="text/css" href="{{ path('EditProfileCSS') }}">
+{% endblock %}
+
+{% block PageTitle %}
+    Edit Profile
+{% endblock %}
+
+{% block Link %}
+    "{{ path ('LogInMenu')   }}"
+{% endblock %}
+
+{% block FormLink %}
+    "/Edit/EditProfile/Update"
+{% endblock %}
+
+{% block Form %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Username", "label": "Your username", "type": "text", "required": true}  %}
+    {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Email", "label": "Your E-Mail Adress", "type": "email", "required": true}  %}
+            <tr>
+                <td>
+                    <label for="Password">
+                        Password Settings:
+                    </label>
+                </td>
+                <td>
+                    <a href="/Edit/Password" id="Password" class="FakeButton">
+                        Change Password
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="ModelLink">
+                        Edit contributions
+                    </label>
+                </td>
+                <td>
+                    <a href="EditAuswahl.html.twig" id="ModelLink" class="FakeButton">
+                        Click me
+                    </a>
+                </td>
+            </tr>
+    {% block SumbitText %}
+        "Change Settings"
+    {% endblock %}
+{% endblock %}

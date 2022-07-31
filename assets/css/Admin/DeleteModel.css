@@ -1,0 +1,18 @@
+.BigButtonIcon img {
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.ButtonTD {
+    width: 10%;
+}
+
+.Title {
+    text-align: center;
+    margin-right: 30%;
+}
+
+/*
+div, span {
+   border: 1px dashed black;
+} */

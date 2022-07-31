@@ -1,0 +1,23 @@
+{% extends "/Misc/Template.html.twig" %}
+
+    {% block TabTitle %}
+        About
+    {% endblock %}
+
+    {% block Stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ path('AboutCSS') }}">
+    {% endblock %}
+
+    {% block Page %}
+    <p>
+        The Biodiversity Model Bank (BioMoB) is an initiative to pool in one interactive online tool
+        available predictive, mechanistic, simulation models for biodiversity across all levels of
+        ecological organization (see Cabral et al. 2017 -. <a href="https://doi.org/10.1111/ecog.02480"> https://doi.org/10.1111/ecog.02480</a>).
+        Modellers are welcomed to contribute their models to this bank and biodiversity researchers
+        can browse available models in regard to their properties, requirements and resources (e.g.
+        code, executables, manuals). The better a model is described, the easier it is for researchers
+        to filter suitable models that they can apply in their research. This tool is thus conceived to
+        create synergies amongst modellers and to propel the application of biodiversity models by
+        empiricists.
+    </p>
+{% endblock %}

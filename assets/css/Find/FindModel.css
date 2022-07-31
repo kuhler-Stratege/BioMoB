@@ -1,0 +1,348 @@
+/*
+   General Site
+ */
+body {
+    margin: 5px;
+    color: #000000;
+}
+
+.Seite {
+    display: grid;
+    grid-template-rows: 70px repeat(2, 1fr) repeat(2, 9fr);
+    grid-template-columns: 2fr 8fr 2fr;
+    gap: 5px;
+
+    padding: 5px;
+    box-sizing: border-box;
+
+    align-content: center;
+	justify-content: center;
+}
+
+.Seite div {
+    padding: 5px;
+}
+
+.Seite span {
+    padding: 5px;
+}
+
+/*
+    Title
+ */
+.TopArea {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    grid-template-areas: unset;
+    grid-template-columns: 10fr 2fr;
+}
+
+.TitelArea, .TitleArea {
+    text-align: center;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    align-items: center;
+	justify-content: center;
+    width: 100%;
+}
+
+.Title {
+    position: absolute;
+    left: 25vw;
+}
+
+@media screen and (max-width: 870px) {
+    .Title {
+        position: relative;
+        left: unset;
+    }
+}
+@media screen and (max-width: 625px) {
+    .Title {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/*
+    Login Button
+ */
+.LoginArea, .ButtonArea {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    align-content: center;
+    vertical-align: top;
+
+    margin: 0;
+    height: 65px;
+    width: 100%;
+
+}
+
+.LoginButton, .ButtonArea a {
+    float: right;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    vertical-align: center;
+
+    display: flex;
+    background: #207b20;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 5px;
+    overflow: visible;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.ButtonArea a img {
+    object-fit: fill;
+    max-width: unset;
+    width: 40px;
+    max-height: unset;
+    height: 40px;
+    fill: #eaecf1;
+}
+
+.LoginButton:hover {
+    background: #1a621a;
+}
+
+.LoginButton:active {
+    background: #154e15;
+}
+
+.ButtonText,
+.BigButtonIcon {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 18px;
+    height: 85%;
+}
+
+.BigButtonIcon {
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.08);
+    fill: #eaecf1;
+}
+
+.BigButtonIcon img {
+    object-fit: fill;
+    width: 65px;
+    height: 65px;
+    fill: #eaecf1;
+}
+
+.ButtonText {
+    width: 100%;
+    color: #eaecf1;
+}
+
+/*
+    Filtering and Search Areas
+ */
+.FilterSearchArea {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.FormTable {
+    width: 100%;
+}
+
+.LabelTD {
+    width: 140px;
+}
+
+.FormLabel {
+    font-size: 16px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+.InputTD {
+    width: 100%;
+}
+
+.FormInput {
+    width: 100%;
+}
+
+.SubmitArea {
+    display: inline-flex;
+    justify-content: space-between;
+    align-content: flex-end;
+    vertical-align: center;
+    float: right;
+    height: 100%;
+}
+
+.FindButton {
+    display: block;
+    background: #207b20;
+    color: #fff;
+    padding-left: 35px;
+    padding-right: 35px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 auto 0 15px;
+}
+
+.FindButton:hover {
+    background: #1a621a;
+}
+
+.FindButton:active {
+    background: #154e15;
+}
+
+/*
+    Donload Button
+ */
+.DownloadArea {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    align-items: center;
+    text-align: center;
+}
+
+/*
+    General outer columns
+ */
+h5 {
+    font-size: 17px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.Oben {
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.Unten {
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.Oben details summary, .Oben details p,
+.Unten details summary, .Unten details p {
+	text-align: center;
+}
+
+/*
+    Outer left column
+ */
+.LinkeSpalte {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 6;
+}
+
+.Spalte {
+    background-color: #7c7c7c;
+    border: 2px solid black;
+}
+
+.Spalte h5, .Spalte summary, .Spalte p {
+    color: #eaecf1;
+}
+
+/*
+    Table
+ */
+.Table {
+    align-content: center;
+
+    grid-row-start: 4;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.Table table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Table tr {
+    border-bottom: 2px solid black;
+}
+
+.Table tr:nth-child(even) {
+    background: #e3e3e3;
+}
+
+.Table tr:last-child {
+    border-bottom: none;
+}
+
+.Table thead {
+    background: #159711;
+}
+
+.Table th {
+    color: #eaecf1;
+    font-size: 17px;
+}
+
+.Table th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.Table th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.Table th:last-child, .Table tr td:last-child {
+    border-right: none;
+}
+
+.Table th:first-child, .Table tr td:first-child {
+    border-left: none;
+}
+
+.Table td, .Table th {
+    text-align: center;
+    align-content: center;
+
+    border-right: 2px solid black;
+}
+
+.Table td {
+    font-size: 14px;
+}
+
+/*
+    Outer right column
+ */
+.RechteSpalte {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 6;
+}
+

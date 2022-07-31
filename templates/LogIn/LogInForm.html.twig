@@ -1,0 +1,48 @@
+{% extends "Misc/Template.html.twig" %}
+
+{% block TabTitle %}
+    Log In
+{% endblock %}
+
+{% block Stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{  path('LogInCSS')  }}" />
+{% endblock %}
+
+{% block PageTitle %}
+    Log In
+{% endblock %}
+
+{% block Page %}
+    <form action="{{ path('LogInChecker') }}" method="POST">  {# TODO: Controller anlegen, der Leute einloggt #}
+        <table class="FormTable">
+            <tbody>
+            {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Email", "label": "E-Mail adress", "type": "email", "required": true} %}
+            {% include '/Misc/FormTemplate/FormRow.html.twig' with {"id": "Passwort", "label": "Password", "type": "password", "required": true} %}
+            <tr>
+                <td>
+                    <a href="/Find/FindModel" class="RedButton">
+                        <img src="{{ path('XImage') }}" alt="The Letter X" class="ButtonIcon">
+                            Cancel
+                        </a>
+                </td>
+                <td>
+                    <input type="submit" value="Log in" class="SubmitButton">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;&nbsp; <input type="hidden" id="validate_token" name="validate_token" value="{{ csrf_token("LogInToken") }}">
+                </td>
+                <td>
+                    <a href="{{ path('RegisterFormRenderer') }}" class="FakeButton">
+                        <img src="{{ path('LogInMenuContributeImage') }}" alt="A head with a Plus symbol next to it" class="ButtonIcon RegisterIcon">
+                        <span class="RegisterText">
+                        Register
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

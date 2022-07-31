@@ -1,0 +1,40 @@
+body {
+    align-items: center;
+}
+
+.SuperTitle {
+    text-align: center;
+    font-size: 45px;
+    position: relative;
+}
+
+.SuperLinks {
+    position: fixed;
+    bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.SuperLinks a {
+    color: #269226;
+}
+
+.SeitenArea {
+    font-size: 15px;
+    text-align: center;
+    align-items: center;
+    position: relative;
+}
+
+.Message-success {
+    background: #84fa84;
+}
+
+.Message-error {
+    background: #ff3335;
+}
+
+.Message-error p {
+    color: #fff0f0;
+}

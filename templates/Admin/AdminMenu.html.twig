@@ -1,0 +1,20 @@
+{%  extends '/LogIn/LogInMenu.html.twig' %}
+
+{%  block TabTitle %}
+    Admin Menu
+{% endblock %}
+
+{% block PageTitle %}
+    Administartor Menu
+{% endblock %}
+
+{% block AdminButtons %}
+        <a href="{{ path('ListUsers') }}" class="FakeButton">
+            <img src="{{ path('AdminMenuListUsersImg') }}" alt="One person standing before two other persons" class="Icon">
+            List users
+        </a>
+        <a href="{{ path("DeleteModel") }}" class="FakeButton">
+            <img src="{{ path('AdminMenuDeleteModelsImg') }}" alt="The letter X" class="Icon">
+            Delete Models
+        </a>
+{% endblock %}

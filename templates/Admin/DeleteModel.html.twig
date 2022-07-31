@@ -1,0 +1,34 @@
+{% extends '/Find/FindModel.html.twig' %}
+
+{% block TabTitle %}
+Delete Model
+{% endblock %}
+
+{% block Stylesheets %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    {{ parent() }}
+     <link rel="stylesheet" type="text/css" href="{{  path('DeleteModelCSS')  }}">
+{% endblock %}
+
+{% block PageHeader %}
+    {% include "Misc/LoggedInTemplate/LoggedInHead.html.twig" with {"link": {{ path("AdminMenu") }}, "title": "Delete Model"} %}
+{% endblock %}
+
+{% block InPagePageHeader %}
+{% endblock %}
+
+{% block TableHead %}
+    <th> Visible </th>
+    <th> Delete </th>
+{% endblock %}
+
+{% block TableBody %}
+    <td class="ButtonTD">
+        <input type="checkbox" class="">
+    </td>
+    <td class="ButtonTD">
+        <button type="button" class="RedButton">
+            Delete
+        </button>
+    </td>
+{% endblock %}

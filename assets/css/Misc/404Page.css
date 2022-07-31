@@ -1,0 +1,16 @@
+.MessageArea {
+    font-size: 15pt;
+}
+
+.ErrorArea {
+    font-size: 30pt;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.ButtonIcon {
+    min-width: 400px;
+    min-height: 200px;
+
+    margin-top: 2em;
+}

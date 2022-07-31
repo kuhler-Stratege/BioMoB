@@ -1,0 +1,178 @@
+{% extends "Misc/Template.html.twig"%}
+
+{% block TabTitle %}
+    Find Page
+{% endblock %}
+
+{% block Stylesheets %}
+    <link type="text/css" rel="stylesheet" href="/Find/FindModel/CSS">
+{% endblock %}
+
+{% block PageHeader %}
+{% endblock %}
+
+{% block Page %}
+    <div class="Seite">
+
+    {% block InPagePageHeader %}
+        {% if app.user != null %}
+            {% include 'Misc/LoggedInTemplate/LoggedInHead.html.twig' with {"Link": "/LogIn/MainMenu", "Title": "Find Model"} %}
+        {% else %}
+            <div class="TopArea">
+                <span class="TitelArea">
+                    <h3 class="Title">
+                        Find Model
+                    </h3>
+                </span>
+                <span class="LoginArea">
+                    <a href="/LogInn/0" class="LoginButton">
+                        <span class="ButtonText">
+                            Login to contribute and edit
+                        </span>
+                        <span class="BigButtonIcon">
+                            <img src="{{ path('FindpageLogInImage') }}" alt="An arrow pointing inside a rounded rectangle">
+                        </span>
+                    </a>
+                </span>
+            </div>
+        {% endif %}
+    {% endblock %}
+
+    <div class="FilterSearchArea">
+        <form action="/Find/FindModel/ProcessFilter">  {#    TODO: Controller schreiben, der Input verarbeitet  #}
+            <table class="FormTable">
+                <tbody>
+                <tr>
+                    <td class="LabelTD">
+                        <label for="Search" class="FormLabel">
+                            Search Model name:
+                        </label>
+                    </td>
+                    <td class="InputTD">
+                        <input type="search" name="Modelname" id="Search" placeholder="&nbsp;" class="FormInput" />
+                    </td>
+                    <td rowspan="2" class="SubmitTD">
+                        <div class="SubmitArea">
+                            <input type="submit" value="Find" class="FindButton"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="FormTD">
+                        <label for="FilterInput" class="FormLabel">
+                            Filter by Keywords:  {# TODO: mehrere Sachen zulassen, also ein neues Feld erscheinen lassen #}
+                        </label>
+                    </td>
+                    <td class="InputTD">
+                        <input type="search" id="FilterInput" name="Keywords" class="FormInput" placeholder="&nbsp;"
+                               title="Select one keyword from the list that pops up when you start typing" list="FilterItems"
+                               pattern=" {% for keyword in keywords %}
+                                            {{ keyword.name }}
+                                        {% endfor %} "/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <datalist id="FilterItems">
+                {% for keyword in keywords %}
+                    <option value="{{ keyword.name }}"> {{ keyword.desc }} </option>
+                {% endfor %}
+            </datalist>
+        </form>
+    </div>
+	<div class="DownloadArea">
+		<a href="/Find/FindModel/DownloadData" class="FakeButton" target="_blank" rel="nofollow noreferrer noopener">
+            <img src="{{ path('FindpageDownloadImage') }}" alt="An arrow pointing from inside a cloud down" class="ButtonIcon">
+            Download data
+        </a> 
+	</div>	{# TODO: Knopf zum Herunterladen aller Metadaten einbauen #}
+    <div class="LinkeSpalte Spalte">
+        <div class="Oben">
+            <h5>
+                General information  {# http://www.webspeaks.in/2012/06/how-to-generate-html-elements-using-php.html.twig #}
+            </h5>
+            <div id="GenerelSpace">
+                <details>
+                    <summary>
+                        Hallo
+                    </summary>
+                    <p>
+                        Welt
+                    </p>
+                </details>
+            </div>
+        </div>
+        <div class="Unten">
+            <h5>
+                Technical information
+            </h5>
+            <div id="TechnicalSpace">
+
+            </div>
+        </div>
+    </div>
+    <div class="Table">
+        {% block Table %}
+        <table>
+            <thead>
+            <tr>
+                <th> Model acronym </th>
+                <th> Keywords </th> {# TODO: nach allen Keywords aus PDF von Juliano filtern #}
+                <th> Short description </th>
+                {% block TableHead %}
+                    {#  additional Table columns #}
+                {% endblock %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for model in models %}
+                <tr id="Row{{ loop.index }}">
+                    <td id="Modelname{{ loop.index }}">
+                        {{ model.name }}
+                    </td>
+                    <td id="Keyword{{ loop.index }}">
+                        {# https://stackoverflow.com/questions/10817763/make-tr-rows-clickable-and-load-result-in-div-using-jquery #}
+                        {% for keyword in model.keywords %}
+                            {{ keyword.desc }},
+                        {% endfor %}
+                    </td>
+                    <td id="shortDesc{{ loop.index }}">
+                        {{ model.shortDesc }}
+                    </td>
+                    <td id="viewcount{{ loop.index }}">
+                        {{ model.viewCount }}
+                    </td>
+                    {% block TableBody %}
+                        {#  additional table columns #}
+                    {% endblock %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+    </div>
+    <div class="RechteSpalte Spalte">
+        <div class="Oben">
+            <h5>
+                Input Variables
+            </h5>
+            <div id="InputSpace">
+                {# Insert Variables here #}
+            </div>
+        </div>
+        <div class="Unten">
+            <h5>
+                Output Variables
+            </h5>
+            <div id="OutputSpace">
+                {#  Insert Output Variables here #}
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block Javascript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+    {# https://www.w3docs.com/snippets/javascript/how-to-check-if-user-has-scrolled-to-the-bottom-of-the-page.html #}
+{% endblock %}

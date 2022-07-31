@@ -1,0 +1,90 @@
+{% extends '/Misc/LoggedInTemplate/LoggedInTemplate.html.twig' %}
+
+{% block TabTitle %}
+List Users
+{% endblock %}
+
+{% block Stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{  path('ModelFinderCSS')  }} ">
+    <link rel="stylesheet" type="text/css" href="{{  path('ListUsersCSS')  }}">
+{% endblock %}
+
+{% block Link %}
+    {{  path('AdminMenu')  }}
+{% endblock %}
+
+{% block PageTitle %}
+    List Users
+{% endblock %}
+
+{% block Page %}
+    <div class="SearchArea">
+        <h5 class="SearchTitle">
+            Search User
+        </h5>
+        <form action=""> {#  TODO: ein weiterer Controller bitte #}
+            <table class="SearchTable">
+                <tbody>
+                {% include "Misc/FormTemplate/FormRow.html.twig" with {"id": "name", "label": "Username", "type": "text", "required": false} %}
+                {% include "Misc/FormTemplate/FormRow.html.twig" with {"id": "Email", "label": "E-mail adress", "type": "email", "required": false} %}
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Find" class="FakeButton" />
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+        <br />
+        </div>
+        <div class="TableArea Table Center">
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        E-Mail Adress
+                    </th>
+                    <th>
+                        Ban Button
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>
+                        {{ user.name }}
+                    </td>
+                    <td>
+                        {{ user.email }}
+                    </td>
+                    <td>
+                        <button type="button" class="RedButton">
+                            Ban user
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="InfoArea Center Spalte">
+            <h5>
+                Asssociated models
+            </h5>
+            <div>
+                <p class="Center">
+                    <a href="/Edit/EditModel/{{  model  }}" class="ModelLink" target="_blank" rel="nofollow noopener noreferrer"> 
+                        {{ model.name }}
+                    </a>
+                </p>
+            </div>
+        </div>
+{% endblock %}
+
+{% block Javascript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+{% endblock %}

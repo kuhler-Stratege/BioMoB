@@ -1,0 +1,28 @@
+{% extends "/Misc/Template.html.twig" %}
+
+{% block TabTitle %}
+    404
+{%  endblock %}
+
+{% block Stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ path('404CSS') }}">
+{% endblock %}
+
+{% block Page %}
+    <div class="Center">
+        <img src="{{ path('404Image') }}" alt="A wall with an unplugged plug placed before." class="ButtonIcon">
+    </div>
+    <p class="Center">
+        <span class="MessageArea">
+            Whoops! Looks like you stumbled over Webspace where noone was before. Please return to the known area.
+        </span>
+    </p>
+    <p class="Center">
+        <span class="ErrorArea">
+            404 - not found
+        </span>
+    </p>
+    <a href="/Find/FindModel" class="FakeButton">
+        Return to the start page
+    </a>
+{% endblock %}

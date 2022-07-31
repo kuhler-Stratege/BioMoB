@@ -1,0 +1,23 @@
+{% extends '/Misc/LoggedInTemplate/LoggedInTemplate.html.twig' %}
+
+{% block Stylesheets %}
+<link type="text/css" rel="stylesheet" href="{{ path('FormTemplateCSS') }}" />
+{% endblock %}
+
+{% block Page %}
+
+    <div class="FormDiv">
+        <form action={% block FormLink %} "" {% endblock %}>
+            <table class="FormTable">
+                <tbody>
+                    {% block Form %}
+                    {# Form goes here #}
+                    {% endblock %}
+                </tbody>
+            </table>
+        </form>
+        <br />
+        <input type="submit" value={% block SumbitText %} "" {% endblock %} class="FakeButton">
+    </div>
+
+{% endblock %}

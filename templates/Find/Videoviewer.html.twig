@@ -1,0 +1,87 @@
+{% extends "Misc/Template.html.twig" %}
+
+{% block TabTitle %}
+    Videoviewer
+{% endblock %}
+
+{% block Stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ path('VideoviewerCSS') }}">
+{% endblock %}
+
+{% block Page %}
+    <div class="TitelArea"> {# Link fur intuitiveres Grid Design: https://www.youtube.com/watch?v=UuHvG-1Np0w&t=3m30s #}
+        <h3>
+            Video for {{ Modelname }}
+        </h3>
+    </div>
+    <div class="LinkeSpaltenArea">
+        <div class="ObereArea">
+            <h5>
+                General information  {# http://www.webspeaks.in/2012/06/how-to-generate-html-elements-using-php.html.twig #}
+            </h5>
+            <div id="GenerelSpace">
+                <details>
+                    <summary>
+                        Hallo
+                    </summary>
+                    <p>
+                        Welt
+                    </p>
+                </details>
+            </div>
+        </div>
+        <div class="UntereArea">
+            <h5>
+                Technical information
+            </h5>
+            <div id="TechnicalSpace">
+
+            </div>
+        </div>
+    </div>
+    <div class="VideoArea">
+        <iframe allowfullscreen src="{{ VideoURL }}" id="Player" name="Player" sandbox="allow-scripts">
+            Please wait while the video is getting loaded.
+        </iframe>
+    </div>
+    <div class="RechteSpaltenArea">
+        <div class="ObereArea">
+            <h5>
+                Input Variables
+            </h5>
+            <div id="InputSpace">
+
+            </div>
+        </div>
+        <div class="UntereArea">
+            <h5>
+                Output Variables
+            </h5>
+            <div id="OutputSpace">
+
+            </div>
+        </div>
+    </div>
+    <div class="ButtonArea">
+        <span class="LeftButtonSpan">
+            <a href="FindModel.html.twig" class="FakeButton">
+                <span class="ButtonTextSpan">
+                    Return to Modelselection
+                </span>
+                <span class="ButtonIconSpan">
+                    <img src="{{ path('VideoviewerUndoImage') }}" alt="An arrow that points to the left">
+                </span>
+            </a>
+        </span>
+        <span class="RightButtonSpan">
+            <a href="{{ GithubLink }}" class="FakeButton">
+                <span class="ButtonTextSpan">
+                    Leave to project page
+                </span>
+                <span class="ButtonIconSpan">
+                    <img src="{{ path('VideoviewerExternalImage') }}" alt="An arrow that points to the upper right">
+                </span>
+            </a>
+        </span>
+    </div>
+{% endblock %}

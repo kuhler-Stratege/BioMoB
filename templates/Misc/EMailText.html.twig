@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BioMoB: Please confirm your E-Mail Adress</title>
+    <link type="text/css" rel="stylesheet" href="{{ path('DefaultCSS') }}" />
+</head>
+<body>
+    <div>
+        <header>
+            <h1 class="Title">Confirm your E-Mail Adress</h1>
+        </header>
+        <p class="Center">
+            Hi and welcome to BioMoB! <br>
+            Please prove that you are not a robot by confirming your e-mail address. To do so click the following link: <br><br>
+            <a href="{{ signedUrl }}" class="FakeButton Center">I own this E-mail address</a> <br>
+            This link is valid until {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+        </p>
+        <footer class="Center">
+            Thank you for your interest and see you soon.
+        </footer>
+    </div>
+</body>
+</html>

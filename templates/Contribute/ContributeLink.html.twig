@@ -1,0 +1,33 @@
+{% extends 'Misc/Template.html.twig' %}
+
+{% block TabTitle %}
+	Contribute Success
+{% endblock %}
+
+{% block Stylesheets %}
+		<link type="text/css" rel="stylesheet" href="{{ path('ContributeLinkCSS') }}" />
+{% endblock %}
+
+{% block Page %}
+		<h3 class="Title">
+			Contribute Success
+		</h3>
+		<p class="Message">
+			Your entry was submitted successfully. <br />
+			Please copy the following link and paste it to the methodcall in Julia to record and upload your video afterwards. <br />
+			After that you can return to the main menu. <br />
+            <div class="LinkArea">
+                <p id="Link Space" class="Link">
+                {# TODO: Link generieren und darauf auf das Video warten #}
+                {{ ModelLink }}
+                </p>
+                <button class="CopyButton">
+                Copy Link
+                </button>
+            </div>
+		</p>
+        <a href="LogIn/MainMenu" class="FakeButton">
+            <img src="{{ path('HomeImage') }}" alt="A house with an open door" class="Icon">
+		    Back to main menu
+        </a>
+{% endblock %}

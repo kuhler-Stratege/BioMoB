@@ -1,0 +1,189 @@
+/*
+   General Site
+ */
+body {
+    margin: 5px;
+    color: #000000;
+}
+.SeitenArea {
+    display: grid;
+    grid-template-rows: 1fr 4fr 4fr 1fr;
+    grid-template-columns: 2fr 8fr 2fr;
+    gap: 5px;
+
+    padding: 5px;
+    box-sizing: border-box;
+
+    align-content: center;
+    justify-content: center;
+}
+.SeitenArea div {
+    padding: 5px;
+}
+.SeitenArea span {
+    padding: 5px;
+}
+
+/*
+    Title
+ */
+.TitelArea {
+    display: flex;
+
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    align-items: inherit;
+    justify-content: inherit;
+    text-align: center;
+}
+h3 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 40px;
+
+}
+
+/*
+    General outer columns
+ */
+h5 {
+    font-size: 17px;
+    text-align: center;
+    text-decoration: underline;
+}
+.ObereArea {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.UntereArea {
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+.ObereArea details summary, .ObereaArea details p,
+.UntereArea details summary, .UntereArea details p {
+	text-align: center;
+}
+
+/*
+    Outer left column
+ */
+.LinkeSpaltenArea {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+/*
+    Outer right column
+ */
+.RechteSpaltenArea {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.LinkeSpaltenArea, .RechteSpaltenArea {
+    background-color: #7c7c7c;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    vertical-align: top;
+}
+
+/*
+    Video Player
+ */
+.VideoArea {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.VideoArea iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/*
+    Buttons
+ */
+.ButtonArea {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    align-content: center;
+
+    padding: 0;
+    margin: 0;
+}
+.FakeButton {
+    height: 100%;
+}
+
+.ButtonTextSpan,
+.ButtonIconSpan {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 18px;
+    height: 100%;
+}
+.ButtonIconSpan {
+    background: rgba(0, 0, 0, 0.08);
+    fill: #eaecf1;
+}
+.ButtonIconSpan img {
+    object-fit: fill;
+    width: 50px;
+    height: 50px;
+    fill: #eaecf1;
+}
+.ButtonTextSpan {
+    width: 75%;
+    color: #eaecf1;
+    text-align: center;
+}
+.LeftButtonSpan {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    float: left;
+}
+.LeftButtonSpan button {
+    float: left;
+    cursor: pointer;
+}
+.RightButtonSpan {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    float: right;
+}
+.RightButtonSpan button {
+    float: right;
+    cursor: alias;
+}
+@media screen and (max-width: 536px) {
+    .SeitenArea {
+        grid-template-columns: 1fr 10fr 1fr;
+    }
+    .ButtonArea {
+        display: table-row;
+        margin: 0 auto;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .LeftButtonSpan button, .RightButtonSpan button {
+        float: none;
+        alignment: center;
+    }
+    .FakeButton {
+        alignment: center;
+        float: none;
+    }
+    .RightButtonSpan button {
+        transform: translateY(1em);
+
+    }
+
+}

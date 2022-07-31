@@ -1,0 +1,28 @@
+{% extends 'Find/FindModel.html.twig' %}
+
+{% block TabTitle %}
+    View contributed
+{% endblock %}
+
+{% block Stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/Edit/EditModels/CSS">
+{% endblock %}
+
+{% block PageHeader %}
+    {% include "Misc/LoggedInTemplate/LoggedInHead.html.twig" with {"link": "/LogIn/MainMenu", "title": "View models associated with you"} %}
+{% endblock %}
+
+{% block InPagePageHeader %}
+{% endblock %}
+
+{% block TableHead %}
+         {# TODO: Nummer der Aufrufe anzeigen und zahlen lassen #}
+                <th> Viewcount </th>
+{% endblock%}
+
+{% block TabelBody %}
+    <td id="viewcount{{ loop.index }}">
+        {{ model.viewCount }}
+    </td>
+{% endblock %}

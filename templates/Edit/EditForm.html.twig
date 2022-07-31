@@ -1,0 +1,72 @@
+{% extends 'Contribute/ContributeForm.html.twig' %}
+
+{% block TabTitle %}
+Edit {{ Modelname }}
+{% endblock %}
+
+{% block Sytelsheets %}
+    <link rel="stylesheet" type="text/css" href="/Edit/EditModel/CSS">
+{% endblock %}
+
+{% block PageTitle %}
+Edit {{ Modelname }}
+{% endblock %}
+
+{% block Link %}
+    "/Edit/EditModels"
+{% endblock %}
+
+{% block FormLink %}
+    "{{  path("EditFormProcessor")  }}"
+{% endblock %}
+
+{% block Form %}
+
+    {{ parent() }}
+
+    {% include "Misc/FormTemplate/FormSubtitle.html.twig" with {"Title": "Members"} %}
+
+    {% include "Misc/FormTemplate/FormSubsubtitle.html.twig" with {"Subtitle": "Remove Contributers"} %}
+    <tr>
+        <td>
+            <label for="LeaveButton">
+                {{ Username }} (You):
+            </label>
+        </td>
+        <td>
+            <button type="button" id="LeaveButton" class="RedButton">
+                Leave project
+            </button>
+        </td>
+    </tr>
+
+    {% for contributer in contributers %}
+        <tr>
+            <td style="text-decoration: underline">
+                <label for="RemoveUser">
+                    {{ contributer }}:  {# TODO: Nutzernamen aus DB reinladen #}
+                </label>
+            </td>
+            <td>
+                <button type="button" id="RemoveUser" class="RedButton">
+                    Remove contributer
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+
+    {% include '/Misc/FormTemplate/FormSubsubtitle.html.twig' with {"Subtitle": "Add contributer"} %}
+        <tr>
+            <td>
+                <label for="AddDude" class="LastLabel">
+                    Username of Contributer:  {# TODO: auf nicht vorhandenes Konto checken #}
+                </label>
+            </td>
+            <td>
+                <input type="text" id="AddDude" name="newDudeX" placeholder="&nbsp;" class="FormInput LastInput">
+            </td>
+        </tr>
+    {% block SumbitText %}
+        "Update model"
+    {% endblock %}
+{% endblock %}
